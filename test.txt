@@ -1,3 +1,5 @@
 This is a test file.asnksj;
 
 New functionality 1
+
+new functionality 2

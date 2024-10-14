@@ -7,6 +7,7 @@ import Homepage from './components/Homepage'
 import Navbar from './components/Navbar'
 import Loginpanel from './components/Loginpanel'
 import { useState } from 'react'
+import Register from './components/register'
 const App = () => {
 
   return (
@@ -17,6 +18,7 @@ const App = () => {
     <Route path='/login' element={<Loginpanel/>}/>
     <Route path='/' element={<Homepage/>}/>
     <Route path='/taskpage' element={<Taskpage/>}/>
+    <Route path='/register' element={<Register/>}/>
     </Routes>
     </BrowserRouter> 
    </div>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *{
-    font-family: gilroy;
+    font-family: poppins;
 }
 ::selection{
 color: rgb(229, 255, 0);
@@ -12,4 +12,6 @@ color: rgb(229, 255, 0);
 .form input{
     border: 1px solid black;
     width: 350px;
+    height:40px;
+    margin-top: 5px;
 }

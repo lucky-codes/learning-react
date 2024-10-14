@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: gilroy;
+}
+::selection{
+color: rgb(229, 255, 0);
+}
+
+.form input{
+    border: 1px solid black;
+    width: 350px;
+}

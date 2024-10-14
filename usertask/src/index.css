@@ -10,8 +10,13 @@ color: rgb(229, 255, 0);
 }
 
 .form input{
-    border: 1px solid black;
+    border: 1px solid rgba(255, 255, 255, 0.674);
     width: 350px;
     height:40px;
+    background-color: rgba(0, 0, 0, 0.84);
     margin-top: 5px;
+}
+.login{
+    background-image: url('https://wallpaperaccess.com/full/1489353.jpg');
+    background-size:cover;
 }

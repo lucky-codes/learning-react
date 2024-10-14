@@ -1,11 +1,12 @@
 import React from 'react'
 import Background from './components/Background'
 import Foregound from './components/Foregound'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom'
 import Taskpage from './components/taskpage'
 import Homepage from './components/Homepage'
 import Navbar from './components/Navbar'
 import Loginpanel from './components/Loginpanel'
+
 const App = () => {
   return (
     <div>

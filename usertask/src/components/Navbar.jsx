@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { RxCross2 } from "react-icons/rx";
 import { useState } from 'react';
 const Navbar = () => {
+    const location = useLocation()
     const[toggle, setToggle]=useState(true)
     const loaction = useLocation()
     const handleClick=()=>{
@@ -33,10 +34,18 @@ const Navbar = () => {
       
      }</div>: 
         <div>
-            <nav className='w-full  h-[60px] bg-sky-600  flex p-[10px] gap-5 text-white text-[20px]' >
-            <Link to='/' className='font-sans'>Task.org</Link>
-            <Link to='/taskpage' className='font-sans'>Check-All-Task</Link>
-            <Link className='font-sans'>Add task</Link>
+            <nav className=' w-full  h-[60px] bg-black/40 ' >
+            <div className='ml-5 p-2  flex p-[10px] gap-10 text-white text-[20px]'>
+            <Link to='/' className='font-sans'><img src="https://tse3.mm.bing.net/th?id=OIP.T3pE_qq4w8-lMHgo4oaH9wAAAA&pid=Api&P=0&h=180" className='w-10 rounded-xl' alt="" /></Link>
+            <Link to='/taskpage' className='font-sans pt-2'>Features</Link>
+            <Link className='font-sans pt-2'>For Teams</Link>
+            
+            </div>
+            <div className=' absolute top-4 right-5'>
+                {location.pathname=='/login'?"":<Link to='/login' className='mr-[30px] border-[1px] pl-[30px] pt-1 rounded-xl text-white/80 border-black/80 inline-block w-[100px]'>Login</Link>}
+                <Link className='border-2 border-black p-2 rounded-xl bg-red-600/90'>Start for free</Link>
+            </div>
+
             </nav>
         </div>}
             <p></p>

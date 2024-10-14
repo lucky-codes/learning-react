@@ -4,21 +4,24 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation } from 'react-router-dom';
 import { RxCross2 } from "react-icons/rx";
 import { useState } from 'react';
+import Taskpage from './taskpage';
+import { useDispatch, useSelector } from 'react-redux'
+import { changevalue } from '../utils/addSlice';
 const Navbar = () => {
+    const send = useDispatch()
     const location = useLocation()
     const[toggle, setToggle]=useState(true)
     const loaction = useLocation()
+    const addTask=()=>{
+      
+      send(changevalue())
+  }
     const handleClick=()=>{
-        if(toggle===true){
-            setToggle(false)
-
-        }
-        else
-        {
-            setToggle(true)
-        }
+        setToggle(!toggle)
     }
-  return (
+   
+  return (<>{
+  
     <div className='w-full fixed z-[5]'>
 
      {loaction.pathname=='/taskpage' ?<div>
@@ -27,7 +30,7 @@ const Navbar = () => {
             <button><RxCross2 onClick={handleClick} /></button>
                 <nav className='w-[100px] h-auto bg-gray-100/40 z-[5] p-[10px] flex-col text-black-400 flex-wrap text-[13px]' >
                 <Link to='/' className='block font-sans'>Home</Link>
-                <Link to='/taskpage' className='block font-sans'>Add Task</Link>
+                <button onClick={addTask} className='block font-sans'>Add Task</button>
                 <Link to='/login' className='block font-sans bg-red-400 text-semibold border-2 p-[2px] px-[10px] rounded-md my-[10px] border-gray-600'>Log-out</Link>
                 </nav>
             </div>
@@ -48,9 +51,7 @@ const Navbar = () => {
 
             </nav>
         </div>}
-            <p></p>
-           
                </div>
-  )
+}</>)
 }
 export default Navbar;

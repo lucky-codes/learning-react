@@ -45,7 +45,7 @@ const Navbar = () => {
             
             </div>
             <div className=' absolute top-4 right-5'>
-                {location.pathname=='/login'?"":<Link to='/login' className='mr-[30px] border-[1px] pl-[30px] pt-1 rounded-xl text-white/80 border-black/80 inline-block w-[100px]'>Login</Link>}
+                {location.pathname=='/login'?"":<Link to='/login' className='mr-[30px] border-[1px] pl-[25px] pt-0.5 rounded-xl text-white/80 border-black/80 bg-black text-white inline-block w-[90px]'>Login</Link>}
                 <Link to='/register' className='border-2 border-black p-2 rounded-xl border-none shadow-sm shadow-black bg-red-600/90'>Start for free</Link>
             </div>
 

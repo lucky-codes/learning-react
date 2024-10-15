@@ -20,7 +20,9 @@ const Card = ({data, reference}) => {
        
        <div className='text-white px-5 py-10'>
        <FaRegFileAlt />
-       <p className='py-2'>{data.text}</p>
+       <h1 className='py-2 border-b-2   border-b-white/50 text-center'>{data.title}</h1>
+       <p className='font-semibold text-sm text-white/80 absolute top-9 right-6'>{data.date}</p>
+       <p className='py-2'>{data.task}</p>
        </div>
        
         <div className='absolute bottom-0 w-full h-20'>

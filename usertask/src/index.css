@@ -20,3 +20,8 @@ color: rgb(229, 255, 0);
     background-image: url('https://wallpaperaccess.com/full/1489353.jpg');
     background-size:cover;
 }
+.btnstyle>button{
+    text-align: start;
+    display: flex;
+    gap: 10px;
+    }

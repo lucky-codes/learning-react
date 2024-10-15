@@ -86,7 +86,7 @@ const Taskpage = () => {
       <span>Enter task title:</span>
       <input type="text" name='title' value={data.title} onChange={handleInput} className='my-2 mx-4  pl-2 text-black/90' placeholder='Enter task title' />{validate.title&&<p className='text-xs mt-1 text-red-600'>{validate.title}</p>}
       <p>Enter task</p>
-      <input type="text" name='task' value={data.task} onChange={handleInput} className='border-2  pl-2 text-black/90 w-full h-[100px] border-black' placeholder='Enter all task'/>{validate.task&&<p className='text-xs mt-1 text-red-600'>{validate.task}</p>}
+      <textarea type="text" name='task' value={data.task} onChange={handleInput} className='border-2  pl-2 text-black/90 w-full h-[100px] border-black' placeholder='Enter all task'/>{validate.task&&<p className='text-xs mt-1 text-red-600'>{validate.task}</p>}
       <div className=' flex mt-2 justify-between'>
       <button ref={add} onClick={handleClick} className="relative inline-block w-20 text-white bg-white bg-gradient-to-r from-indigo-600 to-pink-500 p-[2px] rounded-lg">
           <span className="flex items-center justify-center bg-green-500 w-full h-full rounded-md">

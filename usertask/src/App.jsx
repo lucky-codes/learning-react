@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Loginpanel from './components/Loginpanel'
 import { useState } from 'react'
 import Register from './components/register'
+import Taskmanager from './components/Taskmanager'
 const App = () => {
 
   return (
@@ -19,6 +20,7 @@ const App = () => {
     <Route path='/' element={<Homepage/>}/>
     <Route path='/taskpage' element={<Taskpage/>}/>
     <Route path='/register' element={<Register/>}/>
+    <Route path='/manager' element={<Taskmanager/>}/>
     </Routes>
     </BrowserRouter> 
    </div>

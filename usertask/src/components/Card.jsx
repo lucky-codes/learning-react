@@ -18,11 +18,13 @@ const Card = ({data, reference}) => {
   return (
     <motion.div drag dragConstraints={reference} whileDrag={{scale:1.2}} className='relative top-5 left-5 w-72 h-[400px] bg-zinc-800 rounded-[30px] overflow-hidden'>   
        
-       <div className='text-white px-5 py-10'>
+       <div className='text-white px-5 block py-10'>
        <FaRegFileAlt />
        <h1 className='py-2 border-b-2   border-b-white/50 text-center'>{data.title}</h1>
        <p className='font-semibold text-sm text-white/80 absolute top-9 right-6'>{data.date}</p>
-       <p className='py-2'>{data.task}</p>
+       <div className='py-2 block'>
+       <p className='break-words'>{data.task}</p>  
+            </div>
        </div>
        
         <div className='absolute bottom-0 w-full h-20'>

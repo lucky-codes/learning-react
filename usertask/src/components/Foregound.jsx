@@ -29,7 +29,7 @@ const Foregound = () => {
     return (
    
         <div ref={ref} className=' fixed z-[3] h-full w-full flex flex-wrap gap-10'>
-            {data.map((value,key)=>( <div key={key}><Card data={value} reference={ref}/></div>     
+            {data.map((value)=>( <div key={value.id}><Card data={value} reference={ref}/></div>     
 ))}
          </div>
   )     

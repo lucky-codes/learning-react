@@ -9,6 +9,8 @@ const Addtask = () => {
   const dataDispatch = useDispatch()
   const select  = useSelector(store=>store.task.showtask)
   const[data,setData]=useState({
+    pid:Math.floor(Math.random()*100),
+    tid:Math.floor(Math.random()*100)*10,
     project:'',
     team:''
   })
@@ -26,9 +28,9 @@ const Addtask = () => {
         <button onClick={()=>dispatch(shwotaskReducer(false))} className='absolute top-1 left-2'><RxCross2 className='w-[22px] h-[22px]'/></button>
            <div className='grid gap-4'>
            <p>Add Project Tasks</p>
-            <input name='project' value={data.value} onChange={onChangehandle} className='h-[40px] px-2 rounded-lg mb-2 text-black/80' type="text" />
+            <input name='project' value={data.project} onChange={onChangehandle} className='h-[40px] px-2 rounded-lg mb-2 text-black/80' type="text" />
             <p>Add Team Tasks</p>
-           <input name='name' value={data.value} onChange={onChangehandle} className='h-[40px] rounded-lg mb-10  text-black/80 ' type="text" />
+           <input name='team' value={data.task} onChange={onChangehandle} className='h-[40px] rounded-lg mb-10  text-black/80 ' type="text" />
            <button onClick={sendData} className='block shadow-sm shadow-white/40 w-20 border-2 rounded-xl bg-green-800 border-black'>ADD</button>
            </div>
            

@@ -14,8 +14,8 @@ console.log(data);
          {select && <Addtask/>}
          <div className='text-black absolute left-[500px] top-[100px]'>
           <h1 className='text-[30px] font-bold'>My projects</h1>
-          {data.map((value, key)=>(
-          <div keys={key}>
+          {data.map((value)=>(
+          <div key={`project-${value.pid}`}>
             <ol>
               <li> {value.project}</li>
             </ol>
@@ -23,8 +23,8 @@ console.log(data);
          ))} 
         <h1 className='text-[30px] font-bold'>My teams</h1>
         <div className='text-black'>
-        {data.map((value, key)=>(
-          <div keys={key}>
+        {data.map((value)=>(
+          <div key={`team-${value.tid}`}>
             <ol>
               <li> {value.team}</li>
             </ol>

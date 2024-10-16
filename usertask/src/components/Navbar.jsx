@@ -22,9 +22,9 @@ const Navbar = () => {
    
   return (<>{
   
-    <div className='w-full fixed z-[5]'>
+    <div className=''>
 
-     {loaction.pathname=='/taskpage' ?<div>
+     {loaction.pathname=='/taskpage' ?<div className='relative z-[5]'>
         {toggle?<button className='float-right mr-[80px]' onClick={handleClick}><GiHamburgerMenu /></button>:
           <div className='float-right'>
             <button><RxCross2 onClick={handleClick} /></button>
@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
       
      }</div>: 
-        <div>
+        <div className='w-full right-0 fixed z-[5]'>
             <nav className=' w-full  h-[60px] bg-black/40 ' >
             <div className='ml-5   flex p-[10px] gap-10 text-white text-[20px]'>
             <Link to='/' className='font-sans'><img src="https://tse3.mm.bing.net/th?id=OIP.T3pE_qq4w8-lMHgo4oaH9wAAAA&pid=Api&P=0&h=180" className='w-10 rounded-xl' alt="" /></Link>

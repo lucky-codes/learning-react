@@ -11,20 +11,23 @@ import { FaAngleDown } from "react-icons/fa";
 import { BsWindowStack } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { shwotaskReducer } from '../utils/taskslice';
+import { shwotaskReducer,showDetailsReducer } from '../utils/taskslice';
 const Sidebar = () => {
     const dispatch = useDispatch()
 const handleshowtask=()=>{
  dispatch(shwotaskReducer())  
  
 }
+const handleShowDeatails=()=>{
+  dispatch(showDetailsReducer())
+}
   return (
     
 <div className='fixed top-[61px]  bg-yellow-100/30  w-[300px] h-auto  p-2   min-h-[100vh] border-2 overflow-hidden'>
     <div className='flex flex-row mb-10 justify-between'>
         <div className='flex gap-3'>
-        <h1>Lucky</h1>
-    <button><FaAngleDown className='w-6 h-6 ' /></button>  
+        <h1>Details</h1>
+    <button onClick={handleShowDeatails}><FaAngleDown className='w-6 h-6 ' /></button>  
       </div>
       <div className='flex gap-3 '>
         <button className=''><IoNotifications className='w-6 h-6 ' /></button>

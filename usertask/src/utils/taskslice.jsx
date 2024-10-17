@@ -3,11 +3,15 @@ const addtask = createSlice({
     name:'task',
     initialState:{
         showtask:false,
-        addtask:[]
+        addtask:[],
+        showDetails:false
     },
     reducers:{
         shwotaskReducer:(state)=>{
           state.showtask=!state.showtask
+        },
+        showDetailsReducer:(state)=>{
+            state.showDetails = !state.showDetails
         },
         addtaskReducer:(state, action)=>{
                 state.addtask.push(action.payload)
@@ -15,4 +19,4 @@ const addtask = createSlice({
     }
 })
 export default addtask.reducer;
-export const{shwotaskReducer, addtaskReducer} =addtask.actions
+export const{shwotaskReducer, addtaskReducer,showDetailsReducer} =addtask.actions

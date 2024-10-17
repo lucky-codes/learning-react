@@ -29,3 +29,14 @@ color: rgb(229, 255, 0);
 color:green;
 background-color: rgba(255, 255, 0, 0.371);
 }
+.bgcolor>:last-child{
+    margin-bottom: 20px;
+}
+.bgcolor{
+    padding: 0px 16px;
+    color: rgba(255, 255, 255, 0.738);
+
+}
+.bgcolor>li:hover{
+background-color: rgba(244, 235, 235, 0.071);
+}

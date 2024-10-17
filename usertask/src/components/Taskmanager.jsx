@@ -17,7 +17,8 @@ const Apicall = async()=>{
   const call = await fetch(`https://dummyjson.com/users/${uid}`).then(data=> data.json()).then(data=>setUdata(data))
   const taskcall = await fetch(`https://dummyjson.com/todos/${uid}`).then(data=> data.json()).then(data=>setTask(data))
 }
-console.log(task)
+console.log(udata);
+
 const addtask = async() =>{
   const post = await axios.post('https://dummyjson.com/todos', {
     id:uid,
@@ -34,8 +35,8 @@ Apicall()
          {select && <Addtask/>}
        {details&&<Mydetails udata ={udata}/>}
          <div className='absolute top-[100px] left-[500px]'> 
-          <h1>Hii {udata.firstname} Your today task are:</h1>
-         <p> Default:-{task.todo}</p> 
+          <h1 className='flex gap-2'>Hii <p className='underline hover:cursor-pointer text-red-800'>{udata.firstName}</p> Your today task are:</h1>
+         <p> Default-Task :- {task.todo}</p> 
          <button onClick={addtask}>add task</button>
          </div>
      </div>

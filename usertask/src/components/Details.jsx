@@ -9,7 +9,7 @@ const Mydetails = ({udata}) => {
           <img src={udata.image} alt="" className='w-20 h-20' />
           </div>
           <div className='grid gap-10'>
-          <h1 className='hover:bg-white/10 px-4 text-white/80'>Name:-{udata.firstname} {udata.lastName}</h1>
+          <h1 className='hover:bg-white/10 px-4 text-white/80'>Name:-{udata.firstName} {udata.lastName}</h1>
             <ol className='bgcolor grid gap-10'>
               <li> Age:-{udata.age}</li>
                <li>Email:-{udata.email}</li>

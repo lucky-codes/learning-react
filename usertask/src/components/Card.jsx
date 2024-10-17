@@ -9,6 +9,7 @@ import { FaFileInvoice } from "react-icons/fa";
 import { RiDeleteBin3Fill } from "react-icons/ri";
 import { useSelector,useDispatch} from 'react-redux';
 import { deleteSelectedReducer } from '../utils/addSlice';
+import { FaRegEdit } from "react-icons/fa";
 const Card = ({data, reference}) => {
   const deleteFile  = useDispatch()
     const[toggle,setToggle]=useState(true)
@@ -28,13 +29,17 @@ const Card = ({data, reference}) => {
     const deleteHandle = ()=>{
     deleteFile(deleteSelectedReducer(data.id))
     }
+    const editHandle = () =>{
+      
+    }
   return (
     <motion.div drag dragConstraints={reference} whileDrag={{scale:1.2}} className='relative top-5 z-[6] left-5 w-72 h-[400px] bg-zinc-800 rounded-[30px] overflow-hidden'>   
        
        <div className='realtive text-white px-5 block py-10'>
         <div className='flex justify-between'>
         <FaRegFileAlt />
-        <button className=' absolute z-[10] top-10 right-6' onClick={deleteHandle}><RiDeleteBin3Fill /></button>
+        <button className=' top-10 right-6' onClick={deleteHandle}><RiDeleteBin3Fill /></button>
+        <button onClick={editHandle}><FaRegEdit /></button>
         </div>
        <h1 className='py-2 border-b-2   border-b-white/50 text-center'>{data.title}</h1>
        <p className='font-semibold text-sm text-white/80 absolute top-9 right-6'>{data.date}</p>

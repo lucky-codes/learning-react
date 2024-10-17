@@ -33,7 +33,10 @@ const addmore = createSlice({
             state.adddata.splice(indexToDelete, 1); 
         }
      }
+    },
+    editSelectedReducer:(state,action)=>{
+     
     }
 })
 export default addmore.reducer;
-export const{changevalue, addReducer, deleteReducer,deleteSelectedReducer}=addmore.actions
+export const{changevalue, addReducer, deleteReducer,deleteSelectedReducer, editSelectedReducer}=addmore.actions

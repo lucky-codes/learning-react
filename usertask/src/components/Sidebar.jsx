@@ -33,7 +33,7 @@ const handleshowtask=()=>{
     </div>
         
         <div className='btnstyle hv flex gap-2 w-full text-start flex-col'>
-        <button className='text-red-700 ' onClick={handleshowtask}><FaCirclePlus className='w-5 h-5 text-red-700'/>Add task</button>
+        <button className='text-red-700 ' onClick={handleshowtask} ><FaCirclePlus className='w-5 h-5 text-red-700'/>Add task</button>
     <button><FaSearch />Search</button>
     <button><LuInbox />inbox</button>
     <button ><SlCalender />Today</button>

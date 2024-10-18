@@ -1,49 +1,46 @@
 import React, { useEffect, useState,useRef } from 'react'
 import { MdPassword } from 'react-icons/md'
-import { Await, Navigate, useNavigate } from 'react-router-dom'
+import { Await, Navigate, Outlet, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 const Loginpanel = () => {
-  const[user, setUser] = useState([])
-  const loginInfo = async() => {
-
-      const call = await fetch('https://dummyjson.com/users').then(res=>res.json()).then(res=>setUser(res.users)).catch(error=>console.log(error))
-    console.log(user)
-  }
-  const[data,setData]=useState({
-    email:'',
-    password:''
-
-  })
-  const navigate=useNavigate();
+  const navigate = useNavigate()
   const focusemail = useRef()
   const focuspass = useRef()
   const[error, setError]=useState({})
+  const[data,setData]=useState({
+    username:'',
+    password:''
+
+  })
+  const loginInfo = async () => {
+    
+      const response = await axios.post('https://dummyjson.com/auth/login', {
+        username: data.username,
+        password: data.password,
+        expiresInMins: 30,
+      }, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+       localStorage.setItem('accessToken', response.data.accessToken);
+      navigate('/login/taskpage')
+      console.log('succefull')
+    
+  };
+ 
+
+  
   const handleLogin=(e)=>{
 const{name,value}=e.target;
 setData((prev)=>({...prev,[name]:value}))
   }
-  useEffect(()=>{
-    loginInfo()
-  },[])
-   const uservalidemail =()=>{
-    if(user.find(value => value.email===data.email)){
-      return true
-    }
-  }
-    const uservalidpass =()=>{
-      if(user.find(value => value.password===data.password)){
-        return true
-      }
-    }
-  //  console.log(user)
-console.log(user.find(value=>value.email===data.email)?.id);
-   
+  
   let valid = {}
   useEffect(()=>{
 
     if(focusemail.current===document.activeElement){
-      if((!data.email.trim())){
-        valid.email='Field is empty please fill this field'
+      if((!data.username.trim())){
+        valid.username='Field is empty please fill this field'
       }
     }
     if(focuspass.current===document.activeElement){
@@ -57,6 +54,7 @@ console.log(user.find(value=>value.email===data.email)?.id);
     }
     else{
       setError({})
+
     }
    
   },[data])
@@ -64,19 +62,14 @@ console.log(user.find(value=>value.email===data.email)?.id);
   //"emily.johnson@x.dummyjson.com",emilyspass"
   const onSubmit=(e)=>{
     e.preventDefault()
-    if(!uservalidemail()){
-      valid.email = "email does not match"
-   }
-   if(!uservalidpass()){
-     valid.password = "pass does not match"
-  }
+
     if(Object.keys(valid).length>0){
       setError(valid)
     }
-    else{
-      const email = data.email
-      navigate(`/manager/${user.find(value=>value.email===email)?.id}`)
+    else{ 
+      loginInfo();
     }
+
   }
   return (
     <div className='w-full  h-screen flex justify-center items-center'>
@@ -88,9 +81,9 @@ console.log(user.find(value=>value.email===data.email)?.id);
             </div>            
       <div className='absolute top-[130px] pl-[20px] w-[50%] h-[250px] border-l-[1px] border-l-gray-600 right-0'>
             <p className='border-b-[1px] border-gray-600 mb-4'>Login</p>
-        <form action="" className='flex form flex-col'>
+        <form action="" onSubmit={onSubmit}className='flex form flex-col'>
         <label className="after:content-['*'] after:ml-0.5 after:text-red-500" htmlFor="">username</label>
-        <input name='email' ref={focusemail} value={data.email}  onChange={handleLogin} type="text" />{error.email&&<p className='text-xs mt-1 text-red-600'>{error.email}</p>}
+        <input name='username' ref={focusemail} value={data.username}  onChange={handleLogin} type="text" />{error.username&&<p className='text-xs mt-1 text-red-600'>{error.username}</p>}
         <label  className="after:content-['*'] after:ml-0.5 after:text-red-500" htmlFor="">Password</label>
         <input name='password' ref={focuspass} value={data.password} onChange={handleLogin} type="password" />{error.password&&<p className='text-xs mt-1 text-red-600'>{error.password}</p>}
         <button className='absolute left-6 top-[200px] mt-4 text-gray-600 text-sm'>Forget Password?</button>

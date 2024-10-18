@@ -7,9 +7,9 @@ import Homepage from './components/Homepage'
 import Navbar from './components/Navbar'
 import Loginpanel from './components/Loginpanel'
 import { useState } from 'react'
-import Register from './components/register'
 import Taskmanager from './components/Taskmanager'
 import Card from './components/Card'
+import Privateroute from './components/Privateroute'
 const App = () => {
 
   return (
@@ -19,9 +19,10 @@ const App = () => {
     <Routes>
     <Route path='/login' element={<Loginpanel/>}/>
     <Route path='/' element={<Homepage/>}/>
-    <Route path='/taskpage' element={<Taskpage/>}/>
-    <Route path='/register' element={<Register/>}/>
-    <Route path='/manager/:uid' element={<Taskmanager/>}/>
+    <Route path='/taskpage' element={<Privateroute/>}>
+    <Route path='taskpage' element={<Taskpage/>}/>
+    <Route path='manager/:uid' element={<Taskmanager/>}/>
+    </Route>
     </Routes>
     </BrowserRouter> 
    </div>

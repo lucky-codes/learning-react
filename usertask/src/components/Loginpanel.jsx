@@ -14,7 +14,7 @@ const Loginpanel = () => {
 
   })
   const loginInfo = async () => {
-    
+    try{
       const response = await axios.post('https://dummyjson.com/auth/login', {
         username: data.username,
         password: data.password,
@@ -23,8 +23,13 @@ const Loginpanel = () => {
         headers: { 'Content-Type': 'application/json' },
       });
        localStorage.setItem('accessToken', response.data.accessToken);
-      navigate('/login/taskpage')
+      navigate('/demo/taskpage')
       console.log('succefull')
+    }
+    catch(error){
+      console.log('error', error)
+    }
+      
     
   };
  

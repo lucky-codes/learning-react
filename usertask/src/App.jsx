@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Taskmanager from './components/Taskmanager'
 import Card from './components/Card'
 import Privateroute from './components/Privateroute'
+import Register from './components/Register'
 const App = () => {
 
   return (
@@ -19,7 +20,8 @@ const App = () => {
     <Routes>
     <Route path='/login' element={<Loginpanel/>}/>
     <Route path='/' element={<Homepage/>}/>
-    <Route path='/taskpage' element={<Privateroute/>}>
+    <Route path='/register' element ={<Register/>}/>
+    <Route path='/demo' element={<Privateroute/>}>
     <Route path='taskpage' element={<Taskpage/>}/>
     <Route path='manager/:uid' element={<Taskmanager/>}/>
     </Route>

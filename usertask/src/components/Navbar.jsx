@@ -19,6 +19,9 @@ const Navbar = () => {
     const handleClick=()=>{
         setToggle(!toggle)
     }
+    const handleLogout=()=>{
+     localStorage.clear();
+    }
    
   return (<>{
   
@@ -40,12 +43,12 @@ const Navbar = () => {
             <nav className=' w-full  h-[60px] bg-black/40 ' >
             <div className='ml-5   flex p-[10px] gap-10 text-white text-[20px]'>
             <Link to='/' className='font-sans'><img src="https://tse3.mm.bing.net/th?id=OIP.T3pE_qq4w8-lMHgo4oaH9wAAAA&pid=Api&P=0&h=180" className='w-10 rounded-xl' alt="" /></Link>
-            <Link to='/taskpage' className='font-sans pt-2'>Features</Link>
-            <Link to='/manager' className='font-sans pt-2'>Manage Task</Link>
+            <Link to='/demo/taskpage' className='font-sans pt-2'>Features</Link>
+            <Link to='/demo/manager' className='font-sans pt-2'>Manage Task</Link>
             
             </div>
             <div className=' absolute top-4 right-5'>
-                {location.pathname=='/login'?"":<Link to='/login' className='mr-[30px] border-[1px] pl-[25px] pt-0.5 rounded-xl text-white/80  text-white inline-block w-[90px]'>Login</Link>}
+                {location.pathname=='/login'?<Link to='/login' className='mr-[30px] border-[1px] pl-[25px] pt-0.5 rounded-xl text-white/80  text-white inline-block w-[90px]'>Login</Link>:<Link onClick={handleLogout} to='/login' className='mr-[30px] border-[1px] pl-[25px] pt-0.5 rounded-xl text-white/80  text-white inline-block w-[90px]'>Logout</Link>}
                 <Link to='/register' className='border-2 border-black p-2 rounded-xl border-none shadow-sm shadow-black bg-red-600/90'>Start for free</Link>
             </div>
 

@@ -5,7 +5,8 @@ const addmore = createSlice({
         value:false,
         adddata:[], 
         count:0,
-        apiToken:''
+        apiToken:null,
+        id:null
     },
     reducers:{
        changevalue:(state)=>{
@@ -35,13 +36,13 @@ const addmore = createSlice({
         }
      },
      ApiTokenReducer:(state, action)=>{
-        state.apiToken =action.payload
-        localStorage.setItem('accessToken',action.payload)
-     }
-    },
-    editSelectedReducer:(state,action)=>{
-     
+        
+     },
+     userIdReducer:(state,action)=>{
+        state.id = action.payload
+       }
     }
+    
 })
 export default addmore.reducer;
-export const{changevalue, addReducer, deleteReducer,deleteSelectedReducer, editSelectedReducer, ApiTokenReducer}=addmore.actions
+export const{changevalue, addReducer, deleteReducer,deleteSelectedReducer, editSelectedReducer, ApiTokenReducer, userIdReducer}=addmore.actions

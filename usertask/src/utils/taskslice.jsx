@@ -4,7 +4,7 @@ const addtask = createSlice({
     initialState:{
         showtask:false,
         addtask:[],
-        showDetails:false
+        showDetails:false,
     },
     reducers:{
         shwotaskReducer:(state)=>{

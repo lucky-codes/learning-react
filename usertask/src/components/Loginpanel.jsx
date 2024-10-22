@@ -3,7 +3,10 @@ import { MdPassword } from 'react-icons/md'
 import { Await, Navigate, Outlet, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+
+
 const Loginpanel = () => {
+
   const navigate = useNavigate()
   const focusemail = useRef()
   const focuspass = useRef()
@@ -11,7 +14,7 @@ const Loginpanel = () => {
   const[data,setData]=useState({
     username:'',
     password:''
-
+   
   })
   const loginInfo = async () => {
     try{
@@ -23,8 +26,10 @@ const Loginpanel = () => {
         headers: { 'Content-Type': 'application/json' },
       });
        localStorage.setItem('accessToken', response.data.accessToken);
-      navigate('/demo/taskpage')
-      console.log('succefull')
+ 
+      navigate('/taskpage')
+      
+            // dispatch(userIdReducer(response.data.id))
     }
     catch(error){
       console.log('error', error)
@@ -73,9 +78,12 @@ setData((prev)=>({...prev,[name]:value}))
     }
     else{ 
       loginInfo();
+     
     }
 
   }
+ 
+    
   return (
     <div className='w-full  h-screen flex justify-center items-center'>
       <div className='login w-full h-screen absolute z-[1] opacity-50'></div>

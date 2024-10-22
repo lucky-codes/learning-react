@@ -5,14 +5,15 @@ import {useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Mydetails from './Details'
 import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 const Taskmanager = () => {
   const {uid} =useParams()
+  const checkid = useSelector(store=>store.add.id) 
 const select =   useSelector(store=>store.task.showtask)
 const data = useSelector(store=>store.task.addtask)
 const details = useSelector(store=>store.task.showDetails)
 const[udata, setUdata]=useState({})
 const[task,setTask] = useState({})
-console.log(data);
 const Apicall = async()=>{
   const call = await fetch(`https://dummyjson.com/users/${uid}`).then(data=> data.json()).then(data=>setUdata(data))
   const taskcall = await fetch(`https://dummyjson.com/todos/${uid}`).then(data=> data.json()).then(data=>setTask(data))
@@ -28,7 +29,8 @@ const addtask = async() =>{
 useEffect(()=>{
 Apicall()
 },[])
-  return (
+console.log("useridparam",uid)
+  return (<>{
     <div className='w-screen h-screens'>
         <Sidebar/>
         <div>
@@ -41,7 +43,7 @@ Apicall()
          </div>
      </div>
         
-    </div>
+    </div>}</>
     
   )
 }

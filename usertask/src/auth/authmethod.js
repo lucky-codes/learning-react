@@ -1,28 +1,12 @@
-
-
-export const calldata = async()=>{
-    try{
-        const call =await fetch('https://dummyjson.com/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id:'1',
-              username: 'michaelw',
-              password: 'michaelwpass',
-              expiresInMins: 30, 
-            }),
-            credentials: 'include' // Include cookies (e.g., accessToken) in the request
-          })
-          if (!call.ok) {
-            throw new Error(`HTTP error! status: ${call.status}`); // Throws error with status code
-        }
-
-   const data = await call.json()
-   console.log(data)
-   return data
+const totalVipColoumn= 5;
+const seats =  []
+for(let i=1; i<=totalVipColoumn; i++){
+  const row = []
+    for(let j = 1; j <= totalVipColoumn; j++){
+      row.push(j)
     }
-  catch(error){
-   console.log("error occured",error)
-  } 
-};
-calldata()
+    seats.push(row)
+}
+for(let row of seats){
+  console.log(row.join(' '))
+}

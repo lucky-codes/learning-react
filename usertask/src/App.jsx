@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import Background from './components/Background'
 import Foregound from './components/Foregound'
 import {BrowserRouter, Navigate, Route, Routes, useLocation} from 'react-router-dom'
@@ -10,37 +10,22 @@ import { useState } from 'react'
 import Taskmanager from './components/Taskmanager'
 import Card from './components/Card'
 import Privateroute from './components/Privateroute'
-import Register from './components/AdminPanel'
-import { useDispatch } from 'react-redux'
-import { userIdReducer } from './utils/addSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import Adminpanel from './components/AdminPanel'
+import MovieBooking from './components/MovieBooking'
+import Checkout from './components/checkout'
 const App = () => {
-  const dispatch = useDispatch()
-  const[uid, setUid] =useState(null)
-  const token = localStorage.getItem('accessToken');
-  useEffect(()=>{
-    if (token) {
-      const base64Url = token.split('.')[1]; // Get the payload part of the JWT
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const decodedPayload = JSON.parse(window.atob(base64)); // Decode from Base64
-      setUid(decodedPayload.id)
-    }
-  },[])
-  useEffect(()=>{
-    if(uid){
-      dispatch(userIdReducer(uid))
-      }
-  },[uid,dispatch])
-  if(uid===null){
-    <div className='flex justify-center w-screen items-center'>
-      Loading...........
-    </div>
-  }
-  console.log("user",uid)
+  const token = localStorage.getItem('accessToken');  
+ const uid = useSelector(store=> store.add.id)
+ const showNavBar = window.location.pathname !=='/movie'
+ useEffect(()=>{
+    console.log(uid)
+ },[uid])
+ 
   return (
     <div>
    <BrowserRouter>
-   <Navbar/>
-  
+   {showNavBar&&<Navbar/>}
     <Routes>
     <Route path='/' element={<Homepage/>}/>
       {!token&&<>
@@ -48,13 +33,16 @@ const App = () => {
       </>}
       {
         uid==1&&<>
-      <Route path='/register' element ={<Register/>}/>  
+                    <Route path='/admin' element ={<Adminpanel/>}/>  
         </>
       }
+
       <Route  element={<Privateroute/>}>
       <Route path='/login' element={<Navigate to='/'/>}/>
     <Route path='taskpage' element={<Taskpage/>}/>
     <Route path='manager/:uid' element={<Taskmanager/>}/>
+    <Route path='/movie' element={<MovieBooking/>}/>
+    <Route path='/checkout' element={<Checkout/>}/>
     </Route>
     <Route path='*' element={<Navigate to='/'/>}/>
     </Routes>

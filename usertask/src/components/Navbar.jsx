@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation } from 'react-router-dom';
@@ -9,8 +9,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changevalue } from '../utils/addSlice';
 const Navbar = () => {
   const user = localStorage.getItem('accessToken')
-  const id = useSelector(store=>store.add.id)
-  console.log(id)
+  const uid = useSelector(store=>store.add.id)
+  
+  
     const send = useDispatch()
     const location = useLocation()
     const[toggle, setToggle]=useState(true)
@@ -25,7 +26,8 @@ const Navbar = () => {
     const handleLogout=()=>{
      localStorage.clear();
     }
-   
+    
+ 
   return (<>{
   
     <div className=''>
@@ -47,12 +49,12 @@ const Navbar = () => {
             <div className='ml-5   flex p-[10px] gap-10 text-white text-[20px]'>
             <Link to='/' className='font-sans'><img src="https://tse3.mm.bing.net/th?id=OIP.T3pE_qq4w8-lMHgo4oaH9wAAAA&pid=Api&P=0&h=180" className='w-10 rounded-xl' alt="" /></Link>
             <Link to='/taskpage' className='font-sans pt-2'>Features</Link>
-            <Link to={`/manager/${id}`} className='font-sans pt-2'>Manage Task</Link>
+            {uid&&<Link to={`/manager/${uid}`} className='font-sans pt-2'>Manage Task</Link>}
             
             </div>
             <div className=' absolute top-4 right-5'>
                 {user?<Link to='/' className='mr-[30px] border-[1px] pl-[20px] pt-0.5 rounded-xl text-white/80  text-white inline-block w-[90px]' onClick={handleLogout}>Logout</Link>:<Link  to='/login' className='mr-[30px] border-[1px] pl-[25px] pt-0.5 rounded-xl text-white/80  text-white inline-block w-[90px]'>Login</Link>}
-                {id==1&&<Link to='/register' className='border-2 border-black p-2 rounded-xl border-none shadow-sm shadow-black bg-red-600/90'>Admin-Panel</Link>}
+                {uid==1&&<Link to='/admin' className='border-2 border-black p-2 rounded-xl border-none shadow-sm shadow-black bg-red-600/90'>Admin-Panel</Link>}
             </div>
 
             </nav>

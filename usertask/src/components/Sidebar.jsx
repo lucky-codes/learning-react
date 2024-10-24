@@ -47,7 +47,7 @@ const handleShowDeatails=()=>{
             <p>My projects</p>
             <button><LuHash className='w-5 h-5 text-blue-600/80'/>Fitness</button>
             <button><LuHash className='w-5 h-5 text-yellow-800'/>Grocery</button>
-            <button><LuHash className='w-5 h-5 text-green-900'/>Appoitment</button>
+            <Link to='/movie' className='flex gap-3'><LuHash className='w-5 h-5 text-green-900'/>Movie</Link>
         </div>
         <div className='btnstyle hv gap-2 mt-10 flex flex-col'>
             <p>Team</p>

@@ -37,3 +37,7 @@ background-color: rgba(255, 255, 0, 0.371);
 .bgcolor>li:hover{
 background-color: rgba(244, 235, 235, 0.071);
 }
+.background{
+    background-image: url('https://open-stand.org/wp-content/uploads/2016/04/International-Union-of-Cinemas-Calls-for-Open-Standards-in-the-Cinema-Industry.jpg');
+    background-size: cover;
+}

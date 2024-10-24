@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import { useState } from 'react';
-const CalculateSeats = ({}) => {
+const CalculateSeats = ({selected,setSelected}) => {
     const  seats=[]
     const totalmiddleColoumn = 6
     const totalVipColoumn =5
     const totallowercoloumn =8
-  const[selected, setSelected]=useState([]);
+  
   const calculate = (numberofSeats) =>{
     for(let rows=1; rows<=numberofSeats; rows++){
         const row = []
@@ -16,11 +16,10 @@ const CalculateSeats = ({}) => {
         
         }
      }
-        if(selected.length>=5){
-            return(
-                <div className='flex justify-center items-center w-screen h-screen text-4xl'>No more seats to select</div>
-            )
-        }
+        // if(selected.length>=5){
+        // alert('5 seats per user only')
+        // window.location = '/checkout'
+        // }
     calculate(totalVipColoumn)
     calculate(totalmiddleColoumn)
     calculate(totallowercoloumn)
@@ -47,7 +46,7 @@ const CalculateSeats = ({}) => {
                 const seatLocation = `Row-${rowIndex} Col-${colIndex}`;
                 return (
                   <button
-                    className={`border-2 bg-yellow-100 border-black/70 mx-5 w-[80px] 
+                    className={`border-2 bg-yellow-100/30 shadow-xl shadow-neutral-900/60 border-black/70 mx-5 w-[80px] 
                       
                       ${selected.includes(seatLocation) ?'bg-yellow-800': 'active:bg-red-500'}`}
                     onClick={() => onClickHandle(rowIndex,colIndex )}

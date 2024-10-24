@@ -5,6 +5,7 @@ const addtask = createSlice({
         showtask:false,
         addtask:[],
         showDetails:false,
+        data:[]
     },
     reducers:{
         shwotaskReducer:(state)=>{
@@ -15,8 +16,12 @@ const addtask = createSlice({
         },
         addtaskReducer:(state, action)=>{
                 state.addtask.push(action.payload)
-        }
+        },
+        userDataReducer:(state,action)=>{
+           state.data =action.payload
+        } 
+        
     }
 })
 export default addtask.reducer;
-export const{shwotaskReducer, addtaskReducer,showDetailsReducer} =addtask.actions
+export const{shwotaskReducer, addtaskReducer,showDetailsReducer, userDataReducer} =addtask.actions
